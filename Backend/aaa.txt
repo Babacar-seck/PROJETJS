@@ -1,0 +1,26 @@
+hola  ;))lol
+tu m'entends
+??
+nonentends
+il faut telecharger live audio?
+oui t'as raison
+ok je le fais
+
+echo "# PROJETJS" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Babacar-seck/PROJETJS.git
+git push -u origin main
+salut c'est arnaud
+start audio call
+sur detail de la session 
+dans le terminal ?
+non
+je te fait un partage d'ecran sur discord
+ok 
+de retour
+
+moi on me voit? 
+on voit pas ton curseur
