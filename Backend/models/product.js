@@ -1,13 +1,19 @@
 const mongoose = require("mongoose")
 
+
 const productSchema = new mongoose.Schema({
     designation: {
         type: String,
         required: true,
     },
-    categorie: {
+    description:{
         type: String,
         required: true,
+    },
+    categorie: {
+        type: String,
+        required : true,
+        enum: ["Hommes", "Femmes", "Enfants"]
     },
     prix: {
         type: Number,
@@ -23,6 +29,10 @@ const productSchema = new mongoose.Schema({
     }
 })
 
+
+
 const Product = mongoose.model("Product", productSchema)
 
 module.exports = Product
+
+
