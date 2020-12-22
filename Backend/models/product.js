@@ -13,7 +13,8 @@ const productSchema = new mongoose.Schema({
     categorie: {
         type: String,
         required : true,
-        enum: ["Hommes", "Femmes", "Enfants"]
+        enum: ["Hommes", "Femmes", "Enfants"],
+        default : 'Hommes'
     },
     prix: {
         type: Number,

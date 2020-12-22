@@ -1,33 +1,47 @@
 const express = require("express")
 const Products = require('../../models/product')
 const multer = require("multer")
-const { mongo, Mongoose } = require("mongoose")
 
 const storage = multer.diskStorage({
     destination : function(req, file, cb) {
         cb(null, './uploads/' )
     },
     filename : function(req,file, cb) {
-        cb(null, new Date().toISOString() + file.originalname)
+        cb(null, file.originalname)
     }
 })
-const upload = multer( { storage : storage})
+const fileFilter = (req, file, cb) => {
+    // reject a file
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+};
+
+const upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: fileFilter
+});
 
 const router = new express.Router()
 
-router.post("/products", upload.single('image') ,async (req, res) =>  {
-    
+router.post("/products", upload.single('image') ,  async  (req, res) =>  {
     const newProduct = new Products({
-        _id = new Mongoose.Types.ObjectId(),
-        designation: req.body.designation,
-        description: req.body.description,
-        categorie: req.body.categorie,
-        prix: req.body.prix,
-        stock: req.body.stcok,
-        image: req.fil.path
+        designation : req.body.designation,
+        description : req.body.description,
+        categorie : req.body.categorie,
+        prix : req.body.prix,
+        stock : req.body.stock,
+        image : req.file.path
     })
-    const document = await newProduct.save()
-    res.status(201).json(document)
+   const document  = await newProduct
+    .save()
+    .then(doc => console.log(doc));
+    res.status(201).send("Created Success")
 })
 
 router.get("/products" , (req,res) => {
