@@ -18,6 +18,11 @@ router.post("/login", async (req, res) => {
             return res.status(401).send("Erreur de MDP et/ou d'username")
         }
         res.send("Login Success")
+        res.redirect('/')
+        
+
+
+
     }catch(err){
         console.log(err)
         res.status(500).send("Erreur lors du login")
