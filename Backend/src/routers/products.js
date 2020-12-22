@@ -17,6 +17,16 @@ router.get("/products" , (req,res) => {
     .catch(err => res.status(500).send(err))
 })
 
+//GET product BY ID
+router.get("/products/:id", (req,res) =>{
+    const { id } = req.params
+    const document = Products
+    .findById(id)
+    .exec()
+    .then(doc => res.send(doc))
+    .catch(err => res.status(500).send(err))
+
+})
 
 router.delete("/products/:id",  async (req,res) => {
     const { id }  = req.params

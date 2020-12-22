@@ -24,6 +24,17 @@ router.get("/users", (req, res) => {
         .then(doc => res.send(doc))
         .catch(err => res.status(500).send(err))
 })
+
+//GET USERS BY ID
+router.get("/users/:id", (req,res) => {
+    const { id } = req.params
+    const document = Users
+    .findById(id)
+    .exec()
+    .then(doc => res.send(doc))
+    .catch(err => res.status(500).send(err))
+})
+
 router.delete("/users/:id", async (req, res) => {
     try {
         const { id } = req.params
