@@ -1,15 +1,37 @@
 const express = require("express")
 const Products = require('../../models/product')
+const multer = require("multer")
+const { mongo, Mongoose } = require("mongoose")
+
+const storage = multer.diskStorage({
+    destination : function(req, file, cb) {
+        cb(null, './uploads/' )
+    },
+    filename : function(req,file, cb) {
+        cb(null, new Date().toISOString() + file.originalname)
+    }
+})
+const upload = multer( { storage : storage})
 
 const router = new express.Router()
 
-router.post("/products", async (req, res) =>  {
-    const newProduct = new Products(req.body)
+router.post("/products", upload.single('image') ,async (req, res) =>  {
+    
+    const newProduct = new Products({
+        _id = new Mongoose.Types.ObjectId(),
+        designation: req.body.designation,
+        description: req.body.description,
+        categorie: req.body.categorie,
+        prix: req.body.prix,
+        stock: req.body.stcok,
+        image: req.fil.path
+    })
     const document = await newProduct.save()
     res.status(201).json(document)
 })
 
 router.get("/products" , (req,res) => {
+   
     const document = Products
     .find()
     .exec()

@@ -1,11 +1,11 @@
-{/* The following line can be included in your src/index.js or App.js file*/ }
-
-
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from "./components/Navbar"
 
 function App() {
   return (
     <div className="App">
+     <Navbar/>
     </div>
   );
 }
