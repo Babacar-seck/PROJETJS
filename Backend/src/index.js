@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const productRouter = require("./routers/products")
 const userRouter = require("./routers/users")
+const authRouter = require("./routers/auth")
 require('dotenv').config()
 
 const conn ="mongodb+srv://cda-admin:admin@cluster0.kvxdf.mongodb.net/db-projetJs?retryWrites=true&w=majority"
@@ -21,6 +22,7 @@ const app = express()
 app.use(express.json())
 app.use(productRouter)
 app.use(userRouter)
+app.use(authRouter)
 
 
 

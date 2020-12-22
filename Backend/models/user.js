@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const argon2 = require("argon2")
 
 const userSchema = new mongoose.Schema({
     firstname:{
@@ -42,6 +43,17 @@ const userSchema = new mongoose.Schema({
     }
 
 })
+userSchema.pre("save" , async function(res){
+    try {
+        const hashedPassword = await argon2.hash(this.password)
+        this.password = hashedPassword
+    } catch (e) {
+        console.log(e)
+    }
+})
+
+
+
 
 const User = mongoose.model("user", userSchema)
 
