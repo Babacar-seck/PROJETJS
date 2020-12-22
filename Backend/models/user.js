@@ -41,14 +41,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-
-    cartItems: {
-        product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
-        quantity: { type: Number, default: 1 },
-        //prix: { type: Number, required: true }
-    }
-
-
+    cartItems: [
+        {
+            product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
+            quantity: { type: Number, default: 0 },
+            //prix: { type: Number, required: true }
+        }
+    ]
 
 })
 userSchema.pre("save", async function (res) {
