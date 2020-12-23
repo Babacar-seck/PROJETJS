@@ -5,15 +5,19 @@ const ShopCard = (props) => {
     const { data , index  } = props
     
 	const { designation, description ,categorie, prix, image } = data
-
-console.log(image)
     return (
-		<Card style={{ width: "18rem" }}>
-			<Card.Img variant="top" src={image} />
+		<Card style={{ width: "20rem"  }}>
+			<Card.Img
+				variant="top"
+				src="https://source.unsplash.com/MNtag_eXMKw/1600x900"
+			/>
 			<Card.Body>
 				<Card.Title>{designation}</Card.Title>
 				<Card.Text>{description}</Card.Text>
-				<Button variant="primary">Acheter</Button>
+				<div className="flex items-center justify-between">
+					<Card.Text>{prix} €</Card.Text>
+					<Button variant="primary">Acheter</Button>
+				</div>
 			</Card.Body>
 		</Card>
 	)

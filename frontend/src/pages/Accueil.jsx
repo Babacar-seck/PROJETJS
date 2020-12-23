@@ -10,9 +10,7 @@ const  Accueil = (props) =>  {
 	const [loading, setLoading] = useState(true)
 	useEffect(() => {
 		(async function () {
-			const response = await fetch(
-				"http://localhost:3001/products"
-			)
+			const response = await fetch("http://localhost:3001/products")
 			const responseData = await response.json()
 			if (response.ok) {
 				setProduct(responseData)
@@ -30,13 +28,13 @@ const  Accueil = (props) =>  {
 		const 	productChild = product.filter(p =>
 				p.categorie == "Enfants"
 			)
-			console.log(productChild)
+				//console.log(productChild)
 				const productMen = product.filter(
 					p => p.categorie == "Hommes"
 				)
-				console.log(productMen)
+				// console.log(productMen)
 				const productWomen = product.filter(p => p.categorie == "Femmes")
-				console.log(productWomen)
+				// console.log(productWomen)
 	
 
     return (
@@ -66,7 +64,7 @@ const  Accueil = (props) =>  {
 					<h2>Hommes</h2>
 				<div id="section" className="flex space-x-4">
 					{productMen.map(p => (
-						<ShopCard data={p} />
+						<ShopCard data={p} src= {img4} />
 					))}
 				</div>
 				<div id="section">
