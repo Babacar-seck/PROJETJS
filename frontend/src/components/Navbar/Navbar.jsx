@@ -9,9 +9,9 @@ const Navbar = () => {
 	return (
 		<nav >
 			<ul className="liste">
-				<a href="/">
+				<NavLink to="/">
 					<img src={logo_sneakers} alt="logo" className="logo"></img>
-				</a>
+				</NavLink>
 				<li className="items">
 					<NavLink to="/hommes">Hommes</NavLink>
 				</li>

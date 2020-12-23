@@ -23,7 +23,7 @@ const Routes = () => {
                     <Login />
                 </Route>
                 <Route path="/" exact>
-                    <Accueil />
+                    <Accueil  img4 = "img4.jpg" img5 ="img5.jpg" img6= "img6.jpg"/>
                 </Route>
                 <Route>
                     <p>Page introuvable 404 </p>
