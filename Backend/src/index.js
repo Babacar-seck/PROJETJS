@@ -32,6 +32,7 @@ app.use(productRouter)
 app.use(userRouter)
 app.use(authRouter)
 app.use(cartRouter)
+app.use(express.static('uploads'));
 
 
 

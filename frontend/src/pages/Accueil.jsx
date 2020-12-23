@@ -1,10 +1,10 @@
 import React, { useState, useEffect} from 'react'
 import {Carousel, Button} from "react-bootstrap"
 import ShopCard from "../components/Card/ShopCard"
+import Styles from './accueil.module.css'
 
 
 const  Accueil = (props) =>  {
-	const { img4, img5, img6 } = props 
 
 	const [product, setProduct] = useState([])
 	const [loading, setLoading] = useState(true)
@@ -36,15 +36,28 @@ const  Accueil = (props) =>  {
 				const productWomen = product.filter(p => p.categorie == "Femmes")
 				// console.log(productWomen)
 	
-
+					const imageCarousel = [
+						{
+							image: "adidas.jpg",
+							description: "Basket Enfants",
+						},
+						{
+							image: "gazelle.jpg",
+							description: "Basket Femmes",
+						},
+						{
+							image: "nike.jpg",
+							description: "Basket Hommes",
+						},
+					]
     return (
 		<div>
-			<Carousel className="w-70">
-				{product.map(p => (
+			<Carousel className="h-25">
+				{imageCarousel.map(p => (
 					<Carousel.Item key={p.id} interval={1000}>
 						<img
-							className="d-block w-100"
-							src={img4}
+							className=" w-100 h-100"
+							src={p.image}
 							alt="First slide"
 						/>
 						<Carousel.Caption>
@@ -61,10 +74,10 @@ const  Accueil = (props) =>  {
 						<ShopCard data={p} />
 					))}
 				</div>
-					<h2>Hommes</h2>
+				<h2>Hommes</h2>
 				<div id="section" className="flex space-x-4">
 					{productMen.map(p => (
-						<ShopCard data={p} src= {img4} />
+						<ShopCard data={p} />
 					))}
 				</div>
 				<div id="section">

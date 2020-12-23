@@ -5,11 +5,12 @@ const ShopCard = (props) => {
     const { data , index  } = props
     
 	const { designation, description ,categorie, prix, image } = data
+	const port = "http://localhost:3001/"
     return (
 		<Card style={{ width: "20rem"  }}>
 			<Card.Img
 				variant="top"
-				src="https://source.unsplash.com/MNtag_eXMKw/1600x900"
+				src= {port + image}
 			/>
 			<Card.Body>
 				<Card.Title>{designation}</Card.Title>

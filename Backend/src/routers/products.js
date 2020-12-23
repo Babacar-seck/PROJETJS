@@ -2,12 +2,13 @@ const express = require("express")
 const Products = require('../../models/product')
 const multer = require("multer")
 
+
 const storage = multer.diskStorage({
     destination : function(req, file, cb) {
         cb(null, './uploads/' )
     },
     filename : function(req,file, cb) {
-        cb(null, file.originalname)
+        cb(null,  file.originalname)
     }
 })
 const fileFilter = (req, file, cb) => {
@@ -30,13 +31,14 @@ const upload = multer({
 const router = new express.Router()
 
 router.post("/products", upload.single('image') ,  async  (req, res) =>  {
+    console.log(req.file.path)
     const newProduct = new Products({
         designation : req.body.designation,
         description : req.body.description,
         categorie : req.body.categorie,
         prix : req.body.prix,
         stock : req.body.stock,
-        image : req.file.path
+        image : req.file.filename
     })
    const document  = await newProduct
     .save()
