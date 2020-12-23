@@ -15,9 +15,11 @@ nav {
     padding: 0;
 }
 .items {
-    margin-right: 10px;
+    margin-right: 140px;
     color: black;
     cursor: pointer;
+    text-decoration: none;
+    
 }
 .logo{
     width: 140px;
@@ -26,7 +28,7 @@ nav {
     left: 15px;
     top: 0px;
 }
-.btn {
+nav > .btn {
     position: absolute;
     right: 25px;
     top: 40px;
