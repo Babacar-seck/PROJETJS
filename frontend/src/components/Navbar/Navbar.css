@@ -1,5 +1,5 @@
 nav {
-    height: 100px;
+    height: 75px;
     background: linear-gradient(45deg, rgb(163, 240, 63), orange);
 }
 .liste {
@@ -13,6 +13,7 @@ nav {
     position: relative;
     margin: 0;
     padding: 0;
+    
 }
 .items {
     margin-right: 140px;
@@ -25,18 +26,37 @@ nav {
     width: 140px;
     height: 120px;
     position: absolute;
-    left: 15px;
-    top: 0px;
+    left: -7px;
+    top: -23px;
 }
-nav > .btn {
+#btnNav {
     position: absolute;
     right: 25px;
-    top: 40px;
+    top: 23px;
     color: black;
     cursor: pointer;
 }
-
-@media screen and (max-width: 600px){
+@media screen and (max-width: 986px ){
+ .liste {
+    list-style-type: none;
+    height: 100%;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.items {
+    margin-right: 40px;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+}
+@media screen and (max-width: 670px){
     .liste {
         flex-direction: column;
         height: 200px;

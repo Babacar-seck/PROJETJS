@@ -3,6 +3,7 @@ import Femmes from "./pages/Femmes"
 import Hommes from "./pages/Hommes"
 import Enfants from "./pages/Enfants"
 import Accueil from "./pages/Accueil"
+import AccueilUser from "./pages/AccueilUser"
 
 import Login from './pages/Login'
 //Avec le lazy loading
@@ -22,8 +23,11 @@ const Routes = () => {
                 <Route path='/login'>
                     <Login />
                 </Route>
+            <Route path='/accueilUser'>
+                <AccueilUser />
+            </Route>
                 <Route path="/" exact>
-                    <Accueil  img4 = "img4.jpg" img5 ="img5.jpg" img6= "img6.jpg"/>
+                    <Accueil/>
                 </Route>
                 <Route>
                     <p>Page introuvable 404 </p>

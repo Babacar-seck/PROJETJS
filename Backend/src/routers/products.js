@@ -47,13 +47,13 @@ router.post("/products", upload.single('image') ,  async  (req, res) =>  {
 })
 
 router.get("/products" , (req,res) => {
-   
     const document = Products
     .find()
-    .exec()
+    .limit(9)
     .then(doc => res.send(doc))
     .catch(err => res.status(500).send(err))
 })
+
 
 //GET product BY ID
 router.get("/products/:id", (req,res) =>{

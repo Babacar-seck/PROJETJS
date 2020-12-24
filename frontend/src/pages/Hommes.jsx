@@ -26,11 +26,11 @@ const  Hommes = ()  => {
 		<div>
 			<h1> Hommes</h1>
 			<img
-				src="https://source.unsplash.com/MNtag_eXMKw/1600x900"
+				src="nike.jpg"
 				className=" h-5 space-y-4 img-fluid"
 				style={{ maxheight: "80vh", width: "100em" }}
 			/>
-			<h2>Nos Nouveautés</h2>
+			<h2 style={{ fontSize: "7rem" }}>Nos Nouveautés</h2>
 			<div id="section" className="grid grid-cols-3 gap-8">
 				{productMen.map(p => (
 					<ShopCard data={p} className="mt-20" />

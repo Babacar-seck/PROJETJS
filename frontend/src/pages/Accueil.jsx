@@ -20,6 +20,7 @@ const  Accueil = (props) =>  {
 			setLoading(false)
 		})()
 	}, [])
+	
 	if (loading) {
 		return "Chargement..."
 	}
@@ -38,11 +39,11 @@ const  Accueil = (props) =>  {
 	
 					const imageCarousel = [
 						{
-							image: "adidas.jpg",
+							image: "chaussure.jpg",
 							description: "Basket Enfants",
 						},
 						{
-							image: "gazelle.jpg",
+							image: "shoesEnfant.jpg",
 							description: "Basket Femmes",
 						},
 						{
@@ -52,36 +53,43 @@ const  Accueil = (props) =>  {
 					]
     return (
 		<div>
-			<Carousel className="h-25">
+			<Carousel className="d-block w-100">
 				{imageCarousel.map(p => (
 					<Carousel.Item key={p.id} interval={1000}>
 						<img
-							className=" w-100 h-100"
+							className=" w-100 "
 							src={p.image}
 							alt="First slide"
 						/>
 						<Carousel.Caption>
-							<h3>First slide label</h3>
-							<p>{p.description}</p>
+							<h3 className="text-red-700">{p.categorie}</h3>
+							<p className="text-red-700">{p.description}</p>
 						</Carousel.Caption>
 					</Carousel.Item>
 				))}
 			</Carousel>
+
 			<section>
-				<div id="section">
-					<h2>Enfants</h2>
+				<h2 style={{ fontSize: "5rem", textAlign: "center" }}>
+					Enfants
+				</h2>
+				<div id="section" className="flex items-center justify-between">
 					{productChild.map(p => (
 						<ShopCard data={p} />
 					))}
 				</div>
-				<h2>Hommes</h2>
-				<div id="section" className="flex space-x-4">
+				<h2 style={{ fontSize: "5rem", textAlign: "center" }}>
+					Hommes
+				</h2>
+				<div id="section" className="flex items-center justify-between">
 					{productMen.map(p => (
 						<ShopCard data={p} />
 					))}
 				</div>
-				<div id="section">
-					<h2>Femmes</h2>
+				<h2 style={{ fontSize: "5rem", textAlign: "center" }}>
+					Femmes
+				</h2>
+				<div id="section" className="flex items-center justify-between">
 					{productWomen.map(p => (
 						<ShopCard data={p} />
 					))}

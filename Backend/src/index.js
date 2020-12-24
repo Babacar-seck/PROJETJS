@@ -24,10 +24,15 @@ const corsOptions = {
 //Creation du server
 const app = express()
 
+// const logger = (req, res, next) => {
+//     console.log(req);
+//     next()
+// }
 
-
+// Middleware
 app.use(express.json())
 app.use(cors(corsOptions))
+// app.use(logger)
 app.use(productRouter)
 app.use(userRouter)
 app.use(authRouter)
