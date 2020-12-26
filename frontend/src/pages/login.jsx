@@ -1,39 +1,47 @@
-import { Button, Form } from "react-bootstrap"
+import { Button, Form ,Col} from "react-bootstrap"
 import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router"
 
 const Login = () => {
 	const [user, setUser] = useState([])
-	const [userEmail, setUserEmail] = useState("")
+	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const [redirect, setRedirect] = useState(false)
 	const onSubmitForm = async e => {
 		e.preventDefault()
 		const response = await fetch("http://localhost:3001/login", {
 			method: "POST",
-			 headers : {"Content-type" : "application/json"},
+			headers: {
+				'Content-type': 'application/json',
+				'Accept' : 'application/json',
+			},
 			body: JSON.stringify({
-				email: userEmail,
+				email: email,
 				password: password,
-			}),
+			})
 		})
-		const data = await response.json()
+		 const data = await response.json()
+		console.log(response)
 		setRedirect(true)
-		 localStorage.setItem("id", data)
+	  localStorage.setItem("id", data)
 	}
 	return (
 		<div>
-			{redirect ? <Redirect to="/AccueilUser" /> : null}
-			<Form onSubmit={onSubmitForm} action={"/AccueilUser"}>
-				<Form.Group controlId="formBasicEmail">
+			{JSON.stringify({
+				email: email,
+				password: password,
+			})}
+			{redirect ? <Redirect to="/dashboard" /> : null}
+			<h1 class="text-center mb-5">Login </h1>
+			<Form onSubmit={onSubmitForm} action={"/dashboard"} className="bg-gray-100">
+				<Form.Group controlId="formBasicEmail" className="px-30">
 					<Form.Label>Email address</Form.Label>
 					<Form.Control
 						type="email"
 						placeholder="Enter email"
 						className="w-50"
-						value={userEmail}
-						onChange={e => setUserEmail(e.target.value)}
-				
+						value={email}
+						onChange={e => setEmail(e.target.value)}
 					/>
 					<Form.Text className="text-muted">
 						We'll never share your email with anyone else.
@@ -57,6 +65,10 @@ const Login = () => {
 					Submit
 				</Button>
 			</Form>
+
+			<p class="lead mt-4">
+				No Account? <a href="/inscription">Register</a>
+			</p>
 		</div>
 	)
 }

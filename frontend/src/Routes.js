@@ -3,7 +3,8 @@ import Femmes from "./pages/Femmes"
 import Hommes from "./pages/Hommes"
 import Enfants from "./pages/Enfants"
 import Accueil from "./pages/Accueil"
-import AccueilUser from "./pages/AccueilUser"
+import Dashboard from "./pages/Dashboard"
+import Register from "./pages/Register"
 
 import Login from './pages/Login'
 //Avec le lazy loading
@@ -23,8 +24,11 @@ const Routes = () => {
                 <Route path='/login'>
                     <Login />
                 </Route>
-            <Route path='/accueilUser'>
-                <AccueilUser />
+            <Route path='/dashboard'>
+                <Dashboard />
+            </Route>
+            <Route path='/inscription'>
+                <Register />
             </Route>
                 <Route path="/" exact>
                     <Accueil/>
