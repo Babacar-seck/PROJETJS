@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './footer.module.css'
 import { Row, Col, Container } from 'react-bootstrap'
+import { GiPositionMarker } from 'react-icons/gi'
 
 const Footer = () => {
     return (
@@ -17,7 +18,7 @@ const Footer = () => {
                     <Col className='mt-5'>
                         
                         <h3 className='mb-3'>Nous Contacter</h3>
-                        <p>198 av. des Champs élysées , Paris</p>
+                        <span><GiPositionMarker /><p>198 av. des Champs élysées , Paris</p></span>
                         <p>contact@sneakersSociety.com</p>
                         <p>250 525 252 855</p>
                     </Col>
