@@ -1,8 +1,17 @@
 const express = require("express")
 const argon2 = require("argon2")
 const Users = require("../../models/user")
-
+const passport = require("passport")
 const router = new express.Router()
+
+
+
+// router.post("/login", passport.authenticate('local',{
+//     successRedirect: '/dashboard',
+//     failureRedirect : '/login',
+//     failureFlash : true
+    
+// }))
 
 router.post("/login", async (req, res) => {
     try {
