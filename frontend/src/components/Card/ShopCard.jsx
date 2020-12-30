@@ -1,10 +1,9 @@
 import React from 'react'
-import { Card, Button, Badge } from "react-bootstrap"
-import { FaShoppingBasket } from "react-icons/fa"
+import { Card, Button} from "react-bootstrap"
 import { MdAddShoppingCart } from "react-icons/md"
 
 const ShopCard = (props) => {
-	const { data , index  } = props
+	const { data , action  } = props
 	
     
 	const { designation, description ,categorie, prix, image } = data
@@ -22,7 +21,7 @@ const ShopCard = (props) => {
 				<div className="flex items-center justify-between">
 					<Card.Text>{prix} €</Card.Text>
 					<Button pill variant="primary">
-						<MdAddShoppingCart/>
+						<MdAddShoppingCart onClick = {action} />
 					</Button>
 				</div>
 			</Card.Body>

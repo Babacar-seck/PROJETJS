@@ -7,13 +7,17 @@ import Dashboard from "./pages/Dashboard"
 import Register from "./pages/Register"
 
 import Login from './pages/Login'
+import pageSolo from "./pages/pageSolo"
+import Panier from "./pages/Panier"
+import PanierContext from "./context/PanierContext"
 //Avec le lazy loading
 
 const Routes = () => {
     return (
-            <Switch>
+        
+        <Switch>
                 <Route path="/hommes">
-                   <Hommes/>
+                    <Hommes />
                 </Route>
                 <Route path="/femmes">
                     <Femmes />
@@ -24,19 +28,26 @@ const Routes = () => {
                 <Route path='/login'>
                     <Login />
                 </Route>
-            <Route path='/dashboard'>
-                <Dashboard />
-            </Route>
-            <Route path='/inscription'>
-                <Register />
-            </Route>
+                <Route path='/dashboard'>
+                    <Dashboard />
+                </Route>
+                <Route path='/inscription'>
+                    <Register />
+                </Route>
+                <Route path='/pagesolo'>
+                    <pageSolo />
+                </Route>
+                <Route path='/panier'>
+                    <Panier />
+                </Route>
                 <Route path="/" exact>
-                    <Accueil/>
+                    <Accueil />
                 </Route>
                 <Route>
                     <p>Page introuvable 404 </p>
                 </Route>
-            </Switch>
+
+        </Switch>
     )
 }
 

@@ -4,6 +4,7 @@ import "./Navbar.css"
 import logo_sneakers from "../../img/logo_sneakers.png"
 import Login from "../../pages/Login"
 import { Button} from "react-bootstrap"
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa"
 
 const Navbar = () => {
 
@@ -35,20 +36,31 @@ const Navbar = () => {
 						Enfants
 					</NavLink>
 				</li>
+				<li className="items">
+					<NavLink to="/panier" exact>
+						panier
+					</NavLink>
+				</li>
 			</ul>
 			<NavLink to="/login">
-			{ (localStorage.getItem("id"))?
-				<Button className="btn" id="btnNav" onClick = {handleClick}>
-					Se Déconnecter
-				</Button>
-				:
-					<Button className="btn" id="btnNav">
-						Se connecter
+				{localStorage.getItem("id") ? (
+					<Button
+						className="btn flex"
+						id="btnNav"
+						onClick={handleClick}
+					>
+						<span className=" flex">
+							<FaSignOutAlt /> Se Déconnecter
+						</span>
 					</Button>
-
-				}
-				
-	
+				) : (
+					<Button className="btn flex" id="btnNav">
+						<span className=" flex">
+							<FaSignInAlt className="mr-3" />
+							Se connecter
+						</span>
+					</Button>
+				)}
 			</NavLink>
 		</nav>
 	)
