@@ -3,11 +3,12 @@ import { Carousel, Button } from "react-bootstrap"
 import ShopCard from "../components/Card/ShopCard"
 import Styles from "./accueil.module.css"
 import PanierContext from '../context/PanierContext'
+import TotalContext from '../context/TotalContext'
 
 const Accueil = props => {
 	const [product, setProduct] = useState([])
-	// const [panier, setPanier] = useState([])
 	const { panier, setPanier} = useContext(PanierContext)
+	const { total, setTotal } = useContext(TotalContext)
 	const [loading, setLoading] = useState(true)
 
 
@@ -31,9 +32,10 @@ const Accueil = props => {
 
 	const ajouterPanier = (product) => {
 		setPanier([...panier, {...product}])
+		setTotal(Math.round((total + product.prix) * 100) / 100)
 		
 	}
-	console.log(panier)
+	console.log(total)
 
 	const productChild = product.filter(p => p.categorie == "Enfants")
 	//console.log(productChild)

@@ -1,17 +1,18 @@
 import React, { useContext, useState } from "react"
+import TotalContext from "../context/TotalContext"
 import PanierContext from "../context/PanierContext"
-import ShopCard from "../components/Card/ShopCard"
 import { Table, Alert, Image } from "react-bootstrap"
 import { FaPlusCircle, FaRegTrashAlt } from "react-icons/fa"
 
 const Panier = () => {
 	const { panier, setPanier } = useContext(PanierContext)
-    const [somme, setSomme] = useState(0)
+	const { total, setTotal } = useContext(TotalContext)
 
 
     const ajouterAuPanier = produit => {
 		setPanier([...panier, { ...produit }])
-		setSomme(somme + produit.prix)
+		setTotal(total + produit.prix)
+		console.log(produit.prix)
 	}
 
 	const supprimerPanier = (produit, index) => {
@@ -20,9 +21,11 @@ const Panier = () => {
 		panier.splice(index, 1)
 		setPanier([...panier])
 		const { prix } = produit
-		setSomme(somme - prix)
+		setTotal(Math.round((total - prix )* 100) / 100)
+	
+
 	}
-	console.log(somme)
+	console.log(total)
 
     console.log(panier)
     const nbre = 1;
@@ -80,7 +83,7 @@ const Panier = () => {
 						Total
 					</th>
 					<th colSpan="3" className="font-semibold text-3xl">
-						{somme} €
+						{total} €
 					</th>
 				</tbody>
 			</Table>
