@@ -5,6 +5,7 @@ import logo_sneakers from "../../img/logo_sneakers.png"
 import Login from "../../pages/Login"
 import { Button} from "react-bootstrap"
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa"
+import { MdAddShoppingCart } from "react-icons/md"
 
 const Navbar = () => {
 
@@ -38,7 +39,7 @@ const Navbar = () => {
 				</li>
 				<li className="items">
 					<NavLink to="/panier" exact>
-						panier
+						<MdAddShoppingCart className="h-10 w-10" />
 					</NavLink>
 				</li>
 			</ul>
@@ -54,7 +55,11 @@ const Navbar = () => {
 						</span>
 					</Button>
 				) : (
-					<Button className="btn flex" id="btnNav">
+					<Button
+						className="btn flex color"
+						id="btnNav"
+						variant="light"
+					>
 						<span className=" flex">
 							<FaSignInAlt className="mr-3" />
 							Se connecter

@@ -5,9 +5,8 @@ import Enfants from "./pages/Enfants"
 import Accueil from "./pages/Accueil"
 import Dashboard from "./pages/Dashboard"
 import Register from "./pages/Register"
-
 import Login from './pages/Login'
-import pageSolo from "./pages/pageSolo"
+import PageSolo from "./pages/PageSolo"
 import Panier from "./pages/Panier"
 import PanierContext from "./context/PanierContext"
 //Avec le lazy loading
@@ -34,8 +33,8 @@ const Routes = () => {
                 <Route path='/inscription'>
                     <Register />
                 </Route>
-                <Route path='/pagesolo'>
-                    <pageSolo />
+                <Route path='/pageSolo'>
+                    <PageSolo />
                 </Route>
                 <Route path='/panier'>
                     <Panier />

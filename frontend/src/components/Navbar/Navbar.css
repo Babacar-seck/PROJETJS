@@ -4,7 +4,7 @@ nav {
 }
 .liste {
     list-style-type: none;
-    background: linear-gradient(45deg, rgb(163,240,63), orange);
+    background: linear-gradient(45deg, rgb(238, 240, 236), rgb(126, 125, 125));
     height: 100%;
     font-size: 26px;
     display: flex;
@@ -16,11 +16,13 @@ nav {
     
 }
 .items {
-    margin-right: 140px;
+    margin-right: 100px;
     color: black;
     cursor: pointer;
-    text-decoration: none;
-    
+}
+.items > a {
+    text-decoration: none !important;
+    color: black;
 }
 .logo{
     width: 140px;

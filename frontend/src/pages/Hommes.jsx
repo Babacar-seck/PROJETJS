@@ -6,7 +6,7 @@ const  Hommes = ()  => {
     	const [product, setProduct] = useState([])
 		const [loading, setLoading] = useState(true)
 		useEffect(() => {
-			;(async function () {
+			(async function () {
 				const response = await fetch("http://localhost:3001/products")
 				const responseData = await response.json()
 				if (response.ok) {

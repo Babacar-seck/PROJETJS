@@ -1,6 +1,7 @@
 import React from 'react'
 
 const pageSolo = () => {
+	
     return (
 		<div>
 			<div class="flex">
