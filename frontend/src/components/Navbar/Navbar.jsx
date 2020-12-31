@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useContext}from "react"
 import { NavLink , Link} from "react-router-dom"
 import "./Navbar.css"
 import logo_sneakers from "../../img/logo_sneakers.png"
@@ -6,9 +6,11 @@ import Login from "../../pages/Login"
 import { Button} from "react-bootstrap"
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa"
 import { MdAddShoppingCart } from "react-icons/md"
+import PanierContext from "../../context/PanierContext"
 
 const Navbar = () => {
 
+const { panier, setPanier } = useContext(PanierContext)
 
 	const handleClick = e => {
 	
@@ -38,8 +40,11 @@ const Navbar = () => {
 					</NavLink>
 				</li>
 				<li className="items">
-					<NavLink to="/panier" exact>
+					<NavLink to="/panier" className="flex" exact>
 						<MdAddShoppingCart className="h-10 w-10" />
+						<span className=" border solid black rounded-full">
+							{panier.length}
+						</span>
 					</NavLink>
 				</li>
 			</ul>
